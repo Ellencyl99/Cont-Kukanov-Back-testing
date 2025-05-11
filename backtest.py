@@ -351,8 +351,8 @@ def grid_search(snapshots: pd.DataFrame, order_size: int) -> Dict:
                 best_history = history
                 best_fill_amount = fill_amount
     
-    print(f"Best parameters found: {best_params}")
-    print(f"Remaining shares: {best_remaining}")
+    # print(f"Best parameters found: {best_params}")
+    # print(f"Remaining shares: {best_remaining}")
     
     return {
         'params': best_params,
@@ -506,11 +506,9 @@ def main():
     order_size = 5000
     
     # Run grid search for optimal parameters
-    print("Running grid search for optimal parameters...")
     optimal_result = grid_search(processed_df, order_size)
     
     # Execute baseline strategies
-    print("Executing baseline strategies...")
     best_ask_cost, best_ask_avg_price, best_ask_history = execute_best_ask_strategy(processed_df, order_size)
     twap_cost, twap_avg_price, twap_history = execute_twap_strategy(processed_df, order_size)
     vwap_cost, vwap_avg_price, vwap_history = execute_vwap_strategy(processed_df, order_size)
